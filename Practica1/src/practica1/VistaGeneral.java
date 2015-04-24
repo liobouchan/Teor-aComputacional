@@ -15,6 +15,10 @@ public class VistaGeneral extends javax.swing.JFrame {
     /**
      * Creates new form VistaGeneral
      */
+    String [] abecedario = new String[10];
+    String caracter;
+    int numeroDeElemento = 0;
+
     public VistaGeneral() {
         initComponents();
     }
@@ -28,21 +32,74 @@ public class VistaGeneral extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        textElementoNuevo = new javax.swing.JTextField();
+        botonAgregarElementoalAbecedario = new javax.swing.JButton();
+        labelAbecedarioActual = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Definir cada elemento del Abecedario:");
+
+        botonAgregarElementoalAbecedario.setText("Agregar");
+        botonAgregarElementoalAbecedario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarElementoalAbecedarioActionPerformed(evt);
+            }
+        });
+
+        labelAbecedarioActual.setText(".");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAbecedarioActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textElementoNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonAgregarElementoalAbecedario)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(textElementoNuevo)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(botonAgregarElementoalAbecedario, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelAbecedarioActual)
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonAgregarElementoalAbecedarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarElementoalAbecedarioActionPerformed
+        // TODO add your handling code here:
+        
+        caracter = String.valueOf(textElementoNuevo.getText());
+        abecedario[numeroDeElemento] = caracter;
+        numeroDeElemento ++;
+        textElementoNuevo.setText("");
+        String value = "";
+        for(int i=0 ; i<=numeroDeElemento; i++){
+            if(abecedario[i] != null){
+                value += abecedario[i] + ",";
+                labelAbecedarioActual.setText(value);
+                System.out.println(abecedario[i]);
+            }
+        }
+    }//GEN-LAST:event_botonAgregarElementoalAbecedarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +137,9 @@ public class VistaGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAgregarElementoalAbecedario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelAbecedarioActual;
+    private javax.swing.JTextField textElementoNuevo;
     // End of variables declaration//GEN-END:variables
 }
